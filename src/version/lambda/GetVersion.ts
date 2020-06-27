@@ -5,7 +5,7 @@ import { cors } from 'middy/middlewares'
 import { ApiResponse } from '../../response/ApiResponse';
 
 export const handler = middy(async (_event, _context) => {
-    return new ApiResponse().version(200, {"id":1,"newsVersion":2,"videosVersion":2});
+    return new ApiResponse().version(200, {"id":1,"newsVersion":2,"videosVersion":21});
 });
 
 handler.use(cors());
