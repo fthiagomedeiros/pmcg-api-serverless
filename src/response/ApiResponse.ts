@@ -18,4 +18,10 @@ export class ApiResponse {
         }
     }
 
+    version(statusCode: number, message: any): APIGatewayProxyResult {
+        return {
+            statusCode: statusCode,
+            body: JSON.stringify(message)
+        }
+    }
 }
