@@ -24,6 +24,7 @@ provider:
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     NEWS_TABLE: News-${self:provider.stage}
+    VIDEOS_TABLE: Videos-${self:provider.stage}
 
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
@@ -43,6 +44,18 @@ functions:
           - dynamodb:Scan
         Resource: !GetAtt NewsDbTable.Arn
 
+  GetVideos:
+    handler: src/videos/lambda/GetVideos.handler
+    events:
+      - http:
+          method: get
+          path: videos
+          cors: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:Scan
+        Resource: !GetAtt VideosDbTable.Arn
 
 resources:
   Resources:
@@ -58,3 +71,15 @@ resources:
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:provider.environment.NEWS_TABLE}
+
+    VideosDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.VIDEOS_TABLE}
