@@ -9,9 +9,9 @@ This project was built and donated to municipal administration
 ## Deploying on AWS
 
 1. We built this backend using serverless framework, please install it on your machine
-![Serverless Framework](https://www.serverless.com/)
+[Serverless Framework](https://www.serverless.com/)
 
-2. Install Node ![NodeJS](https://nodejs.org/en/download/)
+2. Install Node [NodeJS](https://nodejs.org/en/download/)
 
 3. Set AWS credentials
 
