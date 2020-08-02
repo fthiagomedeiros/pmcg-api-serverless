@@ -14,7 +14,7 @@ export class VideosAccess {
             TableName: this.todoTable
         }).promise();
 
-        return result.Items as Video[]
+        return result.Items.sort() as Video[]
     }
 
 }
