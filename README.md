@@ -29,3 +29,5 @@ __WAF is not provided when deploying this project on AWS__
 
 You can see the architecture in
 ![Serverless](https://github.com/fthiagomedeiros/pmcg-api-serverless/blob/master/PMCG_Backend_Architecture.png "Architecture")
+
+
